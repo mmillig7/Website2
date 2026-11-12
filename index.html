@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#2a333e">
+  <title>Tinsel curtain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="curtain" aria-label="Silver tinsel curtain. The strands show a sliced view of you that shifts as you move."></canvas>
+  <video id="camera" playsinline muted></video>
+
+  <section class="panel" aria-labelledby="title">
+    <h1 id="title">Tinsel curtain</h1>
+    <p>Turn the camera on. The video fills the space behind the foil, and the two layers shift in different directions.</p>
+    <button type="button" id="camera-button">Turn on camera</button>
+    <p id="status" class="status" aria-live="polite">Camera off. Move the pointer to shift the curtain.</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

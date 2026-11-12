@@ -1,0 +1,134 @@
+:root {
+  --ink: #0b0e13;
+  --silver: #e3e6ea;
+  --dim: #8d96a3;
+  --panel: rgba(11, 14, 19, 0.72);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: #2a333e;
+  color: var(--silver);
+  font-family: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+#curtain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+#camera {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  clip-path: inset(50%);
+}
+
+.panel {
+  position: fixed;
+  z-index: 2;
+  left: max(1rem, env(safe-area-inset-left));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  width: min(18.5rem, calc(100vw - max(1rem, env(safe-area-inset-left)) - max(1rem, env(safe-area-inset-right))));
+  margin: 0;
+  padding: 0.9rem 1rem 1rem;
+  border: 1px solid rgba(227, 230, 234, 0.16);
+  border-radius: 1rem;
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  touch-action: manipulation;
+  will-change: transform;
+}
+
+h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.panel p {
+  margin: 0;
+  color: var(--dim);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+#camera-button {
+  display: inline-block;
+  margin-top: 0.85rem;
+  padding: 0.62rem 1.05rem;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f7f8fa 0%, #c5ccd3 100%);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+#camera-button:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #d5dbe1 100%);
+}
+
+#camera-button:focus,
+#camera-button:focus-visible {
+  outline: 2px solid var(--silver);
+  outline-offset: 3px;
+}
+
+#camera-button:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.status {
+  min-height: 2.7em;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 1.05rem;
+  }
+
+  .panel p,
+  #camera-button {
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
